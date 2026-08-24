@@ -19,24 +19,6 @@
       line-height: 1.7;
     }
 
-    header {
-      background: white;
-      border-bottom: 1px solid #e5e7eb;
-      padding: 24px;
-    }
-
-    header div {
-      max-width: 850px;
-      margin: auto;
-    }
-
-    header a {
-      color: #222;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 22px;
-    }
-
     main {
       max-width: 850px;
       margin: 50px auto;
@@ -46,19 +28,59 @@
     .policy {
       background: white;
       border: 1px solid #e5e7eb;
-      border-radius: 12px;
+      border-radius: 10px;
       padding: 40px;
+    }
+
+    .letterhead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .keeply-logo {
+      width: 125px;
+      height: auto;
+      display: block;
+    }
+
+    .tagline {
+      color: #667085;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .developer {
+      color: #667085;
+      font-size: 14px;
+      text-align: right;
+    }
+
+    .letterhead-line {
+      height: 2px;
+      background: #168c89;
+      border-radius: 2px;
+      margin-bottom: 34px;
     }
 
     h1 {
       margin-top: 0;
       margin-bottom: 5px;
-      font-size: 36px;
+      font-size: 34px;
     }
 
     h2 {
       margin-top: 35px;
       font-size: 22px;
+      color: #164e4c;
     }
 
     .effective-date {
@@ -72,20 +94,26 @@
     }
 
     a {
-      color: #2563eb;
+      color: #168c89;
     }
 
     footer {
       max-width: 850px;
-      margin: 40px auto 0;
-      padding: 25px 24px 40px;
+      margin: 35px auto 0;
+      padding: 22px 24px 40px;
       color: #666;
       font-size: 14px;
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-weight: 600;
+      color: #444;
     }
 
     @media (max-width: 600px) {
       main {
-        margin-top: 25px;
+        margin-top: 20px;
         padding: 0 15px;
       }
 
@@ -93,8 +121,27 @@
         padding: 25px;
       }
 
+      .letterhead {
+        align-items: flex-start;
+      }
+
+      .brand {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      .keeply-logo {
+        width: 105px;
+      }
+
+      .tagline,
+      .developer {
+        font-size: 12px;
+      }
+
       h1 {
-        font-size: 30px;
+        font-size: 29px;
       }
     }
   </style>
@@ -102,14 +149,30 @@
 
 <body>
 
-<header>
-  <div>
-    <a href="/">Oobert App Network</a>
-  </div>
-</header>
-
 <main>
   <article class="policy">
+
+    <div class="letterhead">
+      <div class="brand">
+        <a href="/" aria-label="Oobert App Network home">
+          <img
+            src="/images/keeply_header.png"
+            alt="Keeply"
+            class="keeply-logo"
+          >
+        </a>
+
+        <span class="tagline">
+          Remember what matters.
+        </span>
+      </div>
+
+      <div class="developer">
+        Oobert App Network
+      </div>
+    </div>
+
+    <div class="letterhead-line"></div>
 
     <h1>Keeply Privacy Policy</h1>
     <p class="effective-date">
@@ -276,6 +339,9 @@
 </main>
 
 <footer>
+  <span class="footer-brand">Keeply</span>
+  · An Oobert App Network app
+  <br>
   © 2026 Oobert App Network
 </footer>
 
