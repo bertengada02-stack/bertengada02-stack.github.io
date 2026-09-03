@@ -49,21 +49,33 @@
 
     .brand {
       display: flex;
-      align-items: baseline;
-      gap: 16px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      max-width: 100%;
     }
 
     .wordtayo-logo {
-      color: #6d48b8;
-      font-size: 28px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      text-decoration: none;
+      display: block;
+      width: 200px;
+      max-width: 100%;
+    }
+
+    .wordtayo-logo img {
+      display: block;
+      width: 100%;
+      height: auto;
     }
 
     .tagline {
-      color: #706b61;
+      color: #171746;
       font-size: 14px;
+      font-weight: 700;
+      line-height: 1.4286;
+    }
+
+    .tagline-learn {
+      color: #692db0;
     }
 
     .letterhead-line {
@@ -128,20 +140,6 @@
         padding-top: 18px;
       }
 
-      .brand {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
-      }
-
-      .wordtayo-logo {
-        font-size: 25px;
-      }
-
-      .tagline {
-        font-size: 12px;
-      }
-
       .letterhead-line {
         margin-bottom: 28px;
       }
@@ -158,11 +156,11 @@
       <div class="letterhead">
         <div class="brand">
           <a href="/" aria-label="Oobert App Network home" class="wordtayo-logo">
-            WordTayo
+            <img src="/images/wordtayo-logo.svg" alt="WordTayo" width="175" height="48">
           </a>
 
           <span class="tagline">
-            English &amp; Filipino Daily Word Games
+            Play words. <span class="tagline-learn">Learn naturally.</span>
           </span>
         </div>
       </div>
