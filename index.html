@@ -5,148 +5,677 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Oobert App Network</title>
+  <meta
+    name="description"
+    content="Oobert App Network builds games, productivity apps, and other ideas inspired by things we find useful or enjoyable."
+  >
 
   <style>
+    :root {
+      --navy: #18324a;
+      --navy-soft: #29475f;
+      --text: #243746;
+      --muted: #657786;
+      --line: #dfe7ec;
+      --page: #f7fafb;
+      --white: #ffffff;
+
+      --keeply: #287f7b;
+      --keeply-soft: #eaf6f3;
+
+      --wordtayo: #ef7a6a;
+      --wordtayo-soft: #fff1ec;
+
+      --shadow: 0 14px 35px rgba(24, 50, 74, 0.08);
+    }
+
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f7f8fa;
-      color: #222;
+      font-family:
+        Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: var(--page);
+      color: var(--text);
       line-height: 1.6;
     }
 
-    header {
-      background: white;
-      border-bottom: 1px solid #e5e7eb;
-      padding: 24px;
+    a {
+      color: inherit;
     }
 
-    header div {
-      max-width: 900px;
-      margin: auto;
+    /* HEADER */
+
+    .site-header {
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid var(--line);
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 26px;
+    .header-inner {
+      width: min(1120px, calc(100% - 40px));
+      min-height: 86px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
     }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .brand-logo {
+      display: block;
+      width: 310px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .site-nav a {
+      text-decoration: none;
+      color: var(--navy-soft);
+      font-size: 0.94rem;
+      font-weight: 650;
+    }
+
+    .site-nav a:hover {
+      color: var(--keeply);
+    }
+
+    /* MAIN */
 
     main {
-      max-width: 900px;
-      margin: 60px auto;
-      padding: 0 24px;
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
     }
 
-    .intro {
-      margin-bottom: 48px;
+    /* HERO */
+
+    .hero {
+      text-align: center;
+      padding: 82px 0 58px;
     }
 
-    .intro h2 {
-      font-size: 36px;
-      margin-bottom: 12px;
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      color: var(--keeply);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      max-width: 820px;
+      margin: 0 auto;
+      color: var(--navy);
+      font-size: clamp(2.35rem, 6vw, 4.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.055em;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 24px auto 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.16rem);
+    }
+
+    /* APPS */
+
+    .apps-section {
+      padding: 18px 0 70px;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 1.8rem;
+      letter-spacing: -0.025em;
+    }
+
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
     }
 
     .app-card {
-      background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 12px;
-      padding: 28px;
-      margin-top: 24px;
+      min-height: 510px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
     }
 
-    .app-card h3 {
-      margin-top: 0;
-      font-size: 24px;
+    .app-visual {
+      min-height: 210px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
     }
 
-    .links {
-      margin-top: 20px;
+    .app-visual.keeply {
+      background:
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(255, 255, 255, 0.8),
+          transparent 38%
+        ),
+        var(--keeply-soft);
     }
 
-    .links a {
-      margin-right: 20px;
+    .app-visual.wordtayo {
+      background:
+        radial-gradient(
+          circle at 80% 15%,
+          rgba(255, 255, 255, 0.9),
+          transparent 35%
+        ),
+        var(--wordtayo-soft);
+    }
+
+    .app-visual img {
+      display: block;
+      max-width: 100%;
+      max-height: 150px;
+      object-fit: contain;
+    }
+
+    .keeply-image {
+      border-radius: 18px;
+    }
+
+    .app-content {
+      padding: 28px 30px 30px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .app-content h3 {
+      margin: 0 0 10px;
+      color: var(--navy);
+      font-size: 1.55rem;
+      letter-spacing: -0.025em;
+    }
+
+    .app-content p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    /* TAGS */
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 11px;
+      border-radius: 999px;
+      font-size: 0.77rem;
+      font-weight: 750;
+    }
+
+    .tag.keeply {
+      background: #e8f4f2;
+      color: #287f7b;
+    }
+
+    .tag.wordtayo {
+      background: #fff0eb;
+      color: #c86153;
+    }
+
+    /* APP ACTIONS */
+
+    .app-actions {
+      margin-top: auto;
+      padding-top: 26px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px 18px;
+    }
+
+    .google-play-link {
+      display: inline-flex;
+      align-items: center;
       text-decoration: none;
-      font-weight: 600;
     }
 
-    footer {
-      max-width: 900px;
-      margin: 60px auto 0;
-      padding: 30px 24px;
-      border-top: 1px solid #e5e7eb;
-      font-size: 14px;
-      color: #666;
+    .google-play-link img {
+      display: block;
+      width: 168px;
+      max-width: 100%;
+      height: auto;
     }
 
-    footer a {
-      color: inherit;
+    .privacy-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--navy-soft);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .privacy-link:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .privacy-icon {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+    }
+
+    .coming-soon {
+      display: inline-flex;
+      align-items: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 12px;
+      background: #f1f4f6;
+      color: #697984;
+      font-size: 0.88rem;
+      font-weight: 750;
+    }
+
+    /* MORE APPS */
+
+    .more-apps {
+      margin: 0 0 82px;
+      padding: 36px 28px;
+      border: 1px solid #d8ebe7;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #eef9f6, #f7fbfa);
+      text-align: center;
+    }
+
+    .more-apps h2 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 1.35rem;
+    }
+
+    .more-apps p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    /* FOOTER */
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      background: white;
+    }
+
+    .footer-inner {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 34px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .footer-inner p {
+      margin: 0;
+    }
+
+    .footer-inner a {
+      color: var(--navy-soft);
+      font-weight: 650;
+      text-underline-offset: 3px;
+    }
+
+    /* TABLET */
+
+    @media (max-width: 760px) {
+      .header-inner {
+        min-height: 78px;
+      }
+
+      .brand-logo {
+        width: 245px;
+      }
+
+      .site-nav {
+        gap: 16px;
+      }
+
+      .hero {
+        padding: 62px 0 44px;
+      }
+
+      .apps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .app-card {
+        min-height: 0;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 540px) {
+      .header-inner,
+      main,
+      .footer-inner {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .header-inner {
+        min-height: 72px;
+        gap: 12px;
+      }
+
+      .brand-logo {
+        width: 205px;
+      }
+
+      .site-nav {
+        gap: 12px;
+      }
+
+      .site-nav a {
+        font-size: 0.82rem;
+      }
+
+      .site-nav a:first-child {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 2.45rem;
+      }
+
+      .app-content {
+        padding: 24px;
+      }
+
+      .google-play-link img {
+        width: 150px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .brand-logo {
+        width: 180px;
+      }
+
+      .site-nav a {
+        font-size: 0.78rem;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <div>
-    <h1>Oobert App Network</h1>
+<header class="site-header">
+  <div class="header-inner">
+
+    <a
+      class="brand"
+      href="/"
+      aria-label="Oobert App Network home"
+    >
+      <img
+        class="brand-logo"
+        src="/images/oobert-app-network-logo.png"
+        alt="Oobert App Network — Simple apps. A brighter everyday."
+      >
+    </a>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#apps">Our Apps</a>
+      <a href="mailto:oobertappnetwork@gmail.com">Contact</a>
+    </nav>
+
   </div>
 </header>
 
 <main>
 
-  <section class="intro">
-    <h2>Simple apps for everyday needs.</h2>
+  <section class="hero">
+    <span class="eyebrow">
+      Independent apps, made with purpose
+    </span>
+
+    <h1>Useful. Fun. Worth having.</h1>
+
     <p>
-      Oobert App Network creates practical applications designed
-      to make everyday tasks a little easier.
+      Oobert App Network builds games, productivity apps, and other ideas
+      inspired by things we find useful or enjoyable — made for us, and for
+      anyone who might find a little value in them too.
     </p>
   </section>
 
-  <section>
-    <h2>Our Apps</h2>
+  <section class="apps-section" id="apps">
 
-    <div class="app-card">
-      <h3>Keeply</h3>
-
-      <p>
-        Keep track of important things, dates, and reminders
-        so you don't forget what matters.
-      </p>
-
-      <div class="links">
-        <a href="/keeply/privacy-policy/">Privacy Policy</a>
-      </div>
+    <div class="section-heading">
+      <h2>Our Apps</h2>
     </div>
 
-    <div class="app-card">
-      <h3>WordTayo</h3>
+    <div class="apps-grid">
 
-      <p>
-        English &amp; Filipino daily word games that help you
-        play words and learn naturally.
-      </p>
+      <!-- KEEPLY -->
 
-      <div class="links">
-        <a href="/wordtayo/privacy-policy/">Privacy Policy</a>
-      </div>
+      <article class="app-card">
+
+        <div class="app-visual keeply">
+          <img
+            class="keeply-image"
+            src="/images/keeply_header.png"
+            alt="Keeply"
+          >
+        </div>
+
+        <div class="app-content">
+
+          <h3>Keeply</h3>
+
+          <p>
+            Keeply helps you remember important things that come with dates,
+            deadlines, or follow-ups. Track documents, subscriptions, items
+            you own, things you lent or borrowed, money owed, vehicle needs,
+            home items, medicine, and more — all in one simple place.
+          </p>
+
+          <div class="tags">
+            <span class="tag keeply">Productivity</span>
+            <span class="tag keeply">Reminders</span>
+            <span class="tag keeply">Organization</span>
+          </div>
+
+          <div class="app-actions">
+
+            <a
+              class="google-play-link"
+              href="https://play.google.com/store/apps/details?id=com.oobertappnetwork.keeply"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Get Keeply on Google Play"
+            >
+              <img
+                src="/images/google-play-badge.png"
+                alt="Get it on Google Play"
+              >
+            </a>
+
+            <a
+              class="privacy-link"
+              href="/keeply/privacy-policy/"
+            >
+              <svg
+                class="privacy-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 3L19 6V11C19 15.7 16.2 19.1 12 21C7.8 19.1 5 15.7 5 11V6L12 3Z"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9.5 12L11.2 13.7L14.8 10.1"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              Privacy Policy
+            </a>
+
+          </div>
+        </div>
+      </article>
+
+      <!-- WORDTAYO -->
+
+      <article class="app-card">
+
+        <div class="app-visual wordtayo">
+          <img
+            src="/images/wordtayo-logo.svg"
+            alt="WordTayo"
+          >
+        </div>
+
+        <div class="app-content">
+
+          <h3>WordTayo</h3>
+
+          <p>
+            WordTayo is an English and Filipino word game designed to make
+            learning feel like play. Discover words, test your vocabulary,
+            build confidence in both languages, and enjoy quick word challenges
+            that are easy to pick up whenever you have a few minutes.
+          </p>
+
+          <div class="tags">
+            <span class="tag wordtayo">Word Game</span>
+            <span class="tag wordtayo">Education</span>
+            <span class="tag wordtayo">English &amp; Filipino</span>
+          </div>
+
+          <div class="app-actions">
+
+            <span class="coming-soon">
+              Coming soon on Google Play
+            </span>
+
+            <a
+              class="privacy-link"
+              href="/wordtayo/privacy-policy/"
+            >
+              <svg
+                class="privacy-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 3L19 6V11C19 15.7 16.2 19.1 12 21C7.8 19.1 5 15.7 5 11V6L12 3Z"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9.5 12L11.2 13.7L14.8 10.1"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              Privacy Policy
+            </a>
+
+          </div>
+        </div>
+      </article>
+
     </div>
+  </section>
+
+  <section class="more-apps">
+    <h2>More apps are on the way.</h2>
+
+    <p>
+      Games, useful tools, and whatever good idea comes next.
+    </p>
   </section>
 
 </main>
 
-<footer>
-  <p>© 2026 Oobert App Network</p>
+<footer class="site-footer">
+  <div class="footer-inner">
 
-  <p>
-    Contact:
-    <a href="mailto:oobertappnetwork@gmail.com">
-      oobertappnetwork@gmail.com
-    </a>
-  </p>
+    <p>© 2026 Oobert App Network</p>
+
+    <p>
+      <a href="mailto:oobertappnetwork@gmail.com">
+        oobertappnetwork@gmail.com
+      </a>
+    </p>
+
+  </div>
 </footer>
 
 </body>
