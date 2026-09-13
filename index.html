@@ -28,6 +28,9 @@
       --wordtayo: #ef7a6a;
       --wordtayo-soft: #fff1ec;
 
+      --tallyna: #3f655e;
+      --tallyna-soft: #edf6f1;
+
       --shadow: 0 14px 35px rgba(24, 50, 74, 0.08);
       --header-shadow: 0 8px 24px rgba(24, 50, 74, 0.07);
     }
@@ -253,7 +256,7 @@
 
     .apps-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 24px;
     }
 
@@ -294,6 +297,16 @@
           transparent 35%
         ),
         var(--wordtayo-soft);
+    }
+
+    .app-visual.tallyna {
+      background:
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(255, 255, 255, 0.9),
+          transparent 38%
+        ),
+        var(--tallyna-soft);
     }
 
     .app-visual img {
@@ -356,6 +369,11 @@
     .tag.wordtayo {
       background: #fff0eb;
       color: #c86153;
+    }
+
+    .tag.tallyna {
+      background: #e8f2ee;
+      color: var(--tallyna);
     }
 
     /* =========================
@@ -463,6 +481,12 @@
     /* =========================
        TABLET
        ========================= */
+
+    @media (max-width: 980px) {
+      .apps-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
 
     @media (max-width: 760px) {
 
@@ -838,6 +862,102 @@
             <a
               class="privacy-link"
               href="/wordtayo/privacy-policy/"
+            >
+
+              <svg
+                class="privacy-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+
+                <path
+                  d="M12 3L19 6V11C19 15.7 16.2 19.1 12 21C7.8 19.1 5 15.7 5 11V6L12 3Z"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+
+                <path
+                  d="M9.5 12L11.2 13.7L14.8 10.1"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+
+              </svg>
+
+              Privacy Policy
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- TALLYNA -->
+
+      <article class="app-card">
+
+        <div class="app-visual tallyna">
+
+          <img
+            src="/images/tallyna_header.png"
+            alt="Tallyna — Work hours and pay, made simple."
+          >
+
+        </div>
+
+        <div class="app-content">
+
+          <h3>Tallyna</h3>
+
+          <p>
+            Tallyna helps you track work hours, unpaid breaks, split shifts,
+            overtime, and estimated earnings. Set up how you are paid, compare
+            pay across common periods, organize your workweek, and review your
+            history — privately on your device.
+          </p>
+
+          <div class="tags">
+
+            <span class="tag tallyna">
+              Productivity
+            </span>
+
+            <span class="tag tallyna">
+              Work Hours
+            </span>
+
+            <span class="tag tallyna">
+              Pay Calculator
+            </span>
+
+          </div>
+
+          <div class="app-actions">
+
+            <a
+              class="google-play-link"
+              href="https://play.google.com/store/apps/details?id=com.oobertappnetwork.tallyna"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Get Tallyna on Google Play"
+            >
+              <img
+                src="/images/google-play-badge.png"
+                alt="Get it on Google Play"
+              >
+            </a>
+
+            <a
+              class="privacy-link"
+              href="/tallyna/privacy-policy/"
             >
 
               <svg
